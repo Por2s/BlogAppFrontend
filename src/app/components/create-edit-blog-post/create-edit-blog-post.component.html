@@ -1,0 +1,11 @@
+<body>
+  <div>
+    <form [formGroup]="blogForm">
+      <p>Title:</p>
+      <input class="input-field" formControlName="title"/>
+      <p>Text:</p>
+      <textarea style="height:150px;" class="input-field-text" contenteditable="true" formControlName="text"></textarea>
+      <button class="submit-button" (click)="submitBlogPost()">Submit</button>
+    </form>
+  </div>
+</body>

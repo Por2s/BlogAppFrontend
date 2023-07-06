@@ -1,0 +1,18 @@
+<body>
+  <div class="login-dialog">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm)">
+      <p>Email:</p>
+      <input
+        class="input-field"
+        formControlName="email"
+      />
+      <p>Password:</p>
+      <input class="input-field"
+             formControlName="password"
+      />
+      <p *ngIf="wrongValue" style="color: red">Wrong username or password</p>
+      <button class="login-button">Login</button>
+    </form>
+    <button class="register-button" (click)="redirectToRegister()">New user? Register here!</button>
+  </div>
+</body>

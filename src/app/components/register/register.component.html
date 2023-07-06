@@ -1,0 +1,30 @@
+<body>
+<div class="login-dialog">
+  <form class="login-form" [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)">
+    <p>Email:</p>
+    <input
+      class="input-field"
+      formControlName="email"
+    />
+    <p *ngIf="registerForm.get('email')?.errors?.['required'] || registerForm.get('email')?.errors?.['email']" style="color:red">Invalid email</p>
+    <p>Username:</p>
+    <input
+      class="input-field"
+      formControlName="username"
+    />
+    <p *ngIf="registerForm.get('username')?.errors?.['required']" style="color:red">Username required</p>
+    <p>Password:</p>
+    <input class="input-field"
+           formControlName="password"
+    />
+    <p *ngIf="registerForm.get('password')?.errors?.['required'] || registerForm.get('password')?.errors?.['minlength']" style="color:red">Password can't be shorter than 8 characters</p>
+    <p>Repeat password:</p>
+    <input class="input-field"
+           formControlName="repeatPassword"
+    />
+    <p *ngIf="invalidPasswords" style="color:red">Passwords don't match</p>
+    <button class="login-button">Register</button>
+  </form>
+  <p *ngIf="error" style="color:red">Error: user with the given email already exists!</p>
+</div>
+</body>

@@ -1,0 +1,21 @@
+<body>
+<div class="post">
+  <div class="post">
+    <h1 class="post-title">{{blogPost?.title}}</h1>
+    <h3 class="post-title" style="font-weight: bold;">By: {{blogPost?.username}}</h3>
+    <p class="post-text">{{blogPost?.text}}</p>
+  </div>
+  <button class="edit-button" *ngIf="currentUser" (click)="editPost()">Edit post</button>
+  <button class="delete-button" *ngIf="currentUser" (click)="deletePost()">Delete post</button>
+  <h2 class="comments-heading">Comments</h2>
+  <button class="edit-button" *ngIf="!currentUser" (click)="commenting = !commenting">Comment</button>
+  <form [formGroup]="commentForm" *ngIf="commenting">
+    <input class="input-field" formControlName="commentText"/>
+    <button class="edit-button" (click)="submitComment()">Submit</button>
+  </form>
+  <div *ngFor="let comment of blogComments" class="comment">
+    <h3 class="comment-author">{{comment.username}}</h3>
+    <p class="comment-text">{{comment.text}}</p>
+  </div>
+</div>
+</body>

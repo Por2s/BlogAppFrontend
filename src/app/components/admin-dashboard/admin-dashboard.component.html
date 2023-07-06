@@ -1,0 +1,14 @@
+<body>
+<h1>Users</h1>
+<button class="new-button" (click)="redirectToRegister()">New user</button>
+<ul class="post-list">
+  <li *ngFor="let user of userList" (click)="redirectToEdit(user)">
+    <p>Username:</p>
+    <h2 class="post-title">{{user.username}}</h2>
+    <p>Email:</p>
+    <h2 class="post-title">{{user.email}}</h2>
+    <p>Password:</p>
+    <h2 class="post-title">{{user.password}}</h2>
+  </li>
+</ul>
+</body>

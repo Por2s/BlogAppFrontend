@@ -1,0 +1,10 @@
+<body>
+  <h1>Blog Posts</h1>
+  <button class="new-button" (click)="redirectToCreateBlog()">New blog post</button>
+  <ul class="post-list">
+    <li *ngFor="let blogPost of blogList" (click)="redirectToBlog(blogPost)">
+      <h2 class="post-title">{{blogPost.title}}</h2>
+      <p class="post-content">{{blogPost.text}}</p>
+    </li>
+  </ul>
+</body>
