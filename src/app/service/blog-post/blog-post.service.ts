@@ -36,7 +36,6 @@ export class BlogPostService {
   }
 
   public postComment(comment: BlogComment): Observable<boolean> {
-    console.log('here2');
     return this.http.post<boolean>(this.blogsUrl + '/comments', comment);
   }
 }
